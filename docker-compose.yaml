@@ -19,6 +19,60 @@ services:
       - NODE_MAX_SESSION=5
       - START_XVFB=false
 
+  db:
+    image: mysql:5.7
+    volumes:
+      - $PWD/data/mysql:/var/lib/mysql
+      - $PWD/config/mysql/conf.d:/etc/mysql/conf.d
+      - $PWD/log/mysql/:/var/log/mysql/
+    restart: always
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_bin
+      --explicit_defaults_for_timestamp=true
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER: itsme
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
+    networks:
+      - myapp
+
+  redis:
+    image: redis:4.0.14
+    restart: always
+    volumes:
+      - $PWD/data/redis:/data
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - myapp
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    networks:
+      - myapp
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    networks:
+      - myapp
+
 networks:
   default:
     external:
