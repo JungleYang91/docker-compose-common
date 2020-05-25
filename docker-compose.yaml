@@ -19,9 +19,9 @@ services:
       - NODE_MAX_SESSION=5
       - START_XVFB=false
 
-  db:
+  mysql:
     image: mysql:5.7
-    container_name: mymysql
+    container_name: my_mysql
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
       - $PWD/config/mysql/conf.d:/etc/mysql/conf.d
@@ -44,7 +44,7 @@ services:
 
   redis:
     image: redis:4.0.14
-    container_name: myredis
+    container_name: my_redis
     restart: always
     volumes:
       - $PWD/data/redis:/data
@@ -54,6 +54,7 @@ services:
 
   mongo:
     image: mongo
+    container_name: my_mongo
     restart: always
     environment:
       MONGO_INITDB_DATABASE: springboot
@@ -67,6 +68,7 @@ services:
 
   mongo-express:
     image: mongo-express
+    container_name: my_mongo_express
     restart: always
     ports:
       - 8081:8081
