@@ -75,7 +75,7 @@ services:
     networks:
       - myapp
 
+# 网络配置
 networks:
-  default:
-    external:
-      name: myapp
+  myapp: # foo-net是自定义的网络名称
+    driver: bridge  # 桥接方式
