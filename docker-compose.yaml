@@ -5,8 +5,6 @@ services:
     container_name: selenium-hub
     ports:
       - "4444:4444"
-    networks:
-      - myapp
 
   selenium_node_chrome_headless:
     image: selenium/node-chrome:3.141.59-oxygen
@@ -39,10 +37,9 @@ services:
       MYSQL_ROOT_HOST: '%'
       MYSQL_USER: itsme
       MYSQL_PASSWORD: 123456
+      MYSQL_DATABASE: test
     ports:
       - "3306:3306"
-    networks:
-      - myapp
 
   redis:
     image: redis:4.0.14
@@ -52,17 +49,13 @@ services:
     ports:
       - "6379:6379"
     command: ["redis-server", "--appendonly", "yes"]
-    networks:
-      - myapp
 
   mongo:
-    image: mongo
+    image: mongo:3.6.18-xenial
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    networks:
-      - myapp
 
   mongo-express:
     image: mongo-express
@@ -72,10 +65,3 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    networks:
-      - myapp
-
-# 网络配置
-networks:
-  myapp: # foo-net是自定义的网络名称
-    driver: bridge  # 桥接方式
