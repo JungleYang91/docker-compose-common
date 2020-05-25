@@ -21,6 +21,7 @@ services:
 
   db:
     image: mysql:5.7
+    container_name: mysql
     volumes:
       - $PWD/data/mysql:/var/lib/mysql
       - $PWD/config/mysql/conf.d:/etc/mysql/conf.d
@@ -43,6 +44,7 @@ services:
 
   redis:
     image: redis:4.0.14
+    container_name: redis
     restart: always
     volumes:
       - $PWD/data/redis:/data
@@ -52,6 +54,7 @@ services:
 
   mongo:
     image: mongo:3.6.18-xenial
+    container_name: mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
