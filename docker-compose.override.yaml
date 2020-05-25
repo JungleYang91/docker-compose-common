@@ -7,7 +7,7 @@ services:
     volumes:
       - ./app:/app
       - ~/.m2:/root/.m2
-    expose:
+    ports:
       - "8080:8080"
     command: mvn clean spring-boot:run
     depends_on:
