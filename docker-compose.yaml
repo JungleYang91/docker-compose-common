@@ -80,12 +80,12 @@ services:
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo
       ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "false"
       ME_CONFIG_MONGODB_AUTH_DATABASE: springboot
       ME_CONFIG_MONGODB_AUTH_USERNAME: root
       ME_CONFIG_MONGODB_AUTH_PASSWORD: root
-      ME_CONFIG_BASICAUTH_USERNAME: rubyangxg
-      ME_CONFIG_BASICAUTH_PASSWORD: Jungle,./
+      ME_CONFIG_BASICAUTH_USERNAME: meread
+      ME_CONFIG_BASICAUTH_PASSWORD: meread
     depends_on:
       - mongo
 
