@@ -81,3 +81,8 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongo
     links:
       - mongo
+
+volumes:
+  config:
+  data:
+  log:
