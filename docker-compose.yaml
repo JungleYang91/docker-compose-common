@@ -20,7 +20,7 @@ services:
       - START_XVFB=false
 
   mysql:
-    image: mysql:5.7
+    image: mysql:5.7.16
     container_name: my_mysql
     volumes:
       - $PWD/config/mysql/init/:/docker-entrypoint-initdb.d/
