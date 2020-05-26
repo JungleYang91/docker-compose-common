@@ -1,4 +1,4 @@
-package com.meread.springboot;
+package com.meread.springboot.mongo;
 
 import java.util.List;
 
