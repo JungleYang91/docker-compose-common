@@ -3,7 +3,7 @@ DROP database IF EXISTS `test`;
 CREATE DATABASE `test` default character set utf8mb4 collate utf8mb4_unicode_ci;
 
 -- 切换数据库
-USE base_db;
+USE test;
 
 -- 创建表
 DROP TABLE IF EXISTS `base_table` ;
