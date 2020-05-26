@@ -11,6 +11,9 @@ services:
       - $PWD/config/redis/redis.conf:/usr/local/etc/redis/redis.conf
       - $PWD/data/redis/:/data/
       - $PWD/log/redis/:/var/log/redis/
+    configs:
+      - uid: '103'
+      - gid: '103'
     ports:
       - "6379:6379"
     command: redis-server /usr/local/etc/redis/redis.conf
