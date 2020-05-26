@@ -44,7 +44,7 @@ services:
       - "3306:3306"
 
   redis:
-    image: redis:4.0.14
+    image: redis:5
     container_name: my_redis
     restart: always
     volumes:
@@ -54,7 +54,7 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
 
   mongo:
-    image: mongo
+    image: mongo:3
     container_name: my_mongo
     restart: always
     environment:
