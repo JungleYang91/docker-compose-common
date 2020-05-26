@@ -58,7 +58,7 @@ services:
     command: redis-server /usr/local/etc/redis/redis.conf
 
   mongo:
-    image: mongo:3
+    image: mongo:3.6.18
     container_name: my_mongo
     restart: always
     environment:
