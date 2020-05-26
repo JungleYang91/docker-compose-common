@@ -89,3 +89,13 @@ services:
     depends_on:
       - mongo
 
+  rabbitmq:
+    image: rabbitmq:3.8.3-management
+    ports:
+      - '5672:5672'  # The standard AMQP protocol port
+      - '15672:15672'  # HTTP management UI
+    environment:
+      - RABBITMQ_DEFAULT_USER=meread #用户名
+      - RABBITMQ_DEFAULT_PASS=meread #密码
+    volumes:
+      - ./data:/var/lib/rabbitmq
