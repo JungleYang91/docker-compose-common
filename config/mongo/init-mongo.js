@@ -8,8 +8,8 @@ db.createUser(
                 db: "springboot"
             },
             {
-                "role" : "dbAdmin",
-                "db" : "springboot"
+                role : "dbAdmin",
+                db : "springboot"
             }
         ]
     }
