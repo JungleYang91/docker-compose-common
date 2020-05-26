@@ -6,6 +6,10 @@ db.createUser(
             {
                 role: "readWrite",
                 db: "springboot"
+            },
+            {
+                "role" : "dbAdmin",
+                "db" : "springboot"
             }
         ]
     }
