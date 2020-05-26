@@ -55,8 +55,7 @@ services:
       - $PWD/log/redis/:/var/log/redis/
     ports:
       - "6379:6379"
-    command:
-      - redis-server /usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
 
   mongo:
     image: mongo:3
